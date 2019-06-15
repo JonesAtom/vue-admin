@@ -8,11 +8,19 @@
 <script>
 // @ is an alias to /src
 import HelloWorld from '@/components/HelloWorld.vue'
+import fetch from '@/fetch'
 
 export default {
   name: 'home',
   components: {
     HelloWorld
+  },
+  mounted(){
+    fetch({
+      url:'/user/get-user-info',
+      data:{name:'atom'},
+      method:'GET'
+    })
   }
 }
 </script>
