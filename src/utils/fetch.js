@@ -13,8 +13,10 @@ var service = axios.create({
 service.interceptors.request.use((config) => {
     //在发送请求之前做某件事
     if (config.method === 'post') {
-        config.data = qs.stringify(config.data);
+        config.data = JSON.stringify(config.data);
+       
     }
+    console.log(config);
     return config;
 }, (error) => {
     //  _.toast("错误的传参", 'fail');
